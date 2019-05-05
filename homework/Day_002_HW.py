@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 
 # 設定 df_path
-os.getcwd()
-print(os.listdir("./"))
+#os.getcwd()
+#print(os.listdir("./"))
 df_dir='C:/Users/user/Desktop/JupyterNotebook/'
 f_app=os.path.join(df_dir,'application_train.csv')
 df=pd.read_csv(f_app)
