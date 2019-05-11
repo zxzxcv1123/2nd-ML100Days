@@ -47,18 +47,23 @@ test=app_test.copy()
 imputer=Imputer(strategy='median')
 imputer.fit(train)
 train=imputer.transform(train)
-test=imputer.transform(app_train)
+test=imputer.transform(test)
 np.isnan(train).any() #結果False代表沒缺失值
 #特徵縮放
 scaler=MinMaxScaler(feature_range=(0,1))
 scaler.fit(train)
-train=pd.DataFrame(scaler.transform(train))
-test=pd.DataFrame(scaler.transform(test))
+train=scaler.transform(train)
+test=scaler.transform(test)
 
 #fit the model
 #設定參數
 log_reg=LogisticRegression(C=0.0001) #C默認1越小表示越強正則化
 #訓練
 log_reg.fit(train,train_labels)
-#預測
-log_reg_pred=log_reg.predict(test)
+#預測成功的機率(只留下1的機率這排)
+log_reg_pred=log_reg.predict_proba(test)[:,1]
+#儲存預測結果
+submit=app_test[['SK_ID_CURR']]
+submit['TARGET']=log_reg_pred
+
+submit.to_csv('sample_submission.csv',index=False)
