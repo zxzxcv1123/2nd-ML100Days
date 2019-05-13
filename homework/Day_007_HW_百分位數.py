@@ -2,7 +2,7 @@ import os
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
-path='C:/Users/user/Desktop/JupyterNotebook/'
+path='C:/Users/user/Desktop/JupyterNotebook/DATA1/'
 f_app=os.path.join(path,'application_train.csv')
 df=pd.read_csv(f_app)
 df['AMT_ANNUITY'].describe()
