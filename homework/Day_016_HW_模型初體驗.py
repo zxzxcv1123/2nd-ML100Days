@@ -9,7 +9,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 #匯入檔案
-path='C:/Users/user/Desktop/JupyterNotebook/'
+path='C:/Users/user/Desktop/JupyterNotebook/DATA1/'
 f_app_train=os.path.join(path,'application_train.csv')
 f_app_test=os.path.join(path,'application_test.csv')
 app_train=pd.read_csv(f_app_train)
