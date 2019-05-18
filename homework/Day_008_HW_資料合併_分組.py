@@ -31,7 +31,7 @@ result3=pd.merge(df1,df4,how='inner') #取共通處合併
 
 df5=df1.melt()#將欄轉成列
 #作業
-path='C:/Users/user/Desktop/JupyterNotebook/'
+path='C:/Users/user/Desktop/JupyterNotebook/DATA1'
 f_app=os.path.join(path,'application_train.csv')
 df=pd.read_csv(f_app)
 #1.依照 CNT_CHILDREN分成0,1~2,3~5,>5
@@ -47,7 +47,7 @@ df.groupby('CNT_CHILDREN_GROUP').boxplot(column='AMT_INCOME_TOTAL',by='TARGET',s
 plt.suptitle('Average_Income')
 plt.show()
 #3.根據CNT_CHILDREN_GROUP、TARGET對AMT_INCOME_TOTAL經Z轉換計算分數
-df['AMT_INCOME_TOTAL_Z_BY_CHILDREN_GRP-TARGET']=grouped_df.apply(lambda x:)
+df['AMT_INCOME_TOTAL_Z_BY_CHILDREN_GRP-TARGET']=grouped_df.apply(lambda x:(x-np.mean(x))/np.std(x))
 
 df[['AMT_INCOME_TOTAL','AMT_INCOME_TOTAL_Z_BY_CHILDREN_GRP-TARGET']].head()
 
