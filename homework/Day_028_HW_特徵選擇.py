@@ -27,13 +27,16 @@ for i in df:
 df=df[num_features]
 df=df.fillna(-1)
 scaler=MinMaxScaler()
+
 #原始特徵+邏輯斯回歸
 train_X=scaler.fit_transform(df)
 estimator=LogisticRegression()
 cross_val_score(estimator,train_X,train_Y,cv=5).mean() #0.7038
+
 #高相關性特徵+邏輯斯回歸
 train_X=scaler.fit_transform(df[high_list])
 cross_val_score(estimator,train_X,train_Y,cv=5).mean() #0.6791
+
 #L1 Embedding(嵌入法)
 #調整不同的正規化程度，就會自然使得一部分的特徵係數為０，因此刪除的是係數為０的特徵，不須額外指定門檻，但需調整正規化程度
 L1_Reg=Lasso(alpha=0.003)
