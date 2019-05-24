@@ -17,6 +17,7 @@ median_df=df.groupby(['SaleCondition'])['GrLivArea'].median().reset_index()
 max_df=df.groupby(['SaleCondition'])['GrLivArea'].max().reset_index()
 temp = pd.merge(mean_df, mode_df, how='left', on=['SaleCondition'])
 temp = pd.merge(temp, median_df, how='left', on=['SaleCondition'])
+temp = pd.merge(temp, max_df, how='left', on=['SaleCondition'])
 temp.columns = ['SaleCondition', 'Area_Sale_Mean', 'Area_Sale_Mode', 'Area_Sale_Median', 'Area_Sale_Max']
 df=pd.merge(df,temp,how='left',on=['SaleCondition'])
 df=df.drop(['SaleCondition'],axis=1)
