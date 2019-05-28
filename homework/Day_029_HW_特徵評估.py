@@ -32,10 +32,10 @@ train_X=scaler.fit_transform(df[high_feature])
 cross_val_score(estimator,train_X,train_Y,cv=5).mean() #0.7968
 #觀察重要特徵與目標的分布
 sns.regplot(x=df['Sex'],y=train_Y,fit_reg=False)
-sns.regplot(x=df['Fare'],y=train_Y,fit_reg=False)
+sns.regplot(x=df['Ticket'],y=train_Y,fit_reg=False)
 #製作新特徵看看效果
-df['add']=(df['Sex']+df['Fare'])/2
-df['multi']=(df['Sex']*df['Fare'])
+df['add']=(df['Sex']+df['Ticket'])/2
+df['multi']=(df['Sex']*df['Ticket'])
 train_X=scaler.fit_transform(df)
 cross_val_score(estimator,train_X,train_Y,cv=5).mean() #0.8148
 
