@@ -45,6 +45,6 @@ L1_Reg.fit(train_X,train_Y)
 L1_Reg.coef_
 L1_mask=list(L1_Reg.coef_!=0) #第三個欄位False
 L1_list=list(compress(list(df),list(L1_mask))) #使用compress篩選出True的欄位
-#L1_Embedding特徵+線性回歸
+#L1_Embedding特徵+邏輯斯回歸
 train_X=scaler.fit_transform(df[L1_list])
 cross_val_score(estimator,train_X,train_Y,cv=5).mean() #0.7049
