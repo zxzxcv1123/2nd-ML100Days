@@ -62,6 +62,6 @@ iris_X=iris.data
 iris_Y=iris.target
 kmean=KMeans(n_clusters=3)
 kmean.fit(iris_X)
-pred=kmean.labels_ #用lebel來預測
+pred=kmean.labels_ #用lebel來預測本身資料(也可用kmean.predict(iris_X))
 from sklearn.metrics import accuracy_score
 print(accuracy_score(iris_Y,pred))
