@@ -56,3 +56,7 @@ y=iris.target
 est=AgglomerativeClustering(n_clusters=3,linkage='ward')
 est.fit(X)
 labels=est.labels_
+
+fig=plt.figure(figsize=(4,3))
+ax=Axes3D(fig)
+ax.scatter(X[:,3],X[:,0],X[:,2],c=labels)
