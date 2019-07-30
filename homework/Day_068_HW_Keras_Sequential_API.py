@@ -19,7 +19,7 @@ y_test=keras.utils.to_categorical(y_test,10)
 #Sequential的第一層需要加入input_shape參數
 model=Sequential() 
 #Conv2D layer(卷基層)
-#卷積核的數目=64(及輸出維度) 
+#卷積核的數目=64(即輸出維度) 
 #kernel_size=(3*3)(width and lenth)(圖片切分的數量=9)
 #“same”out has the same lenth as the original input(reetain boundary data)
 #input_shape(32,32,3)it means 32*32 color RGB image
