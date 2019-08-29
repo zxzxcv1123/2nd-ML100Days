@@ -93,12 +93,16 @@ def build_mlp():
 
 model=build_mlp()
 #compile
-model.compile(optimizer='Adam',
+model.compile(optimizer='SGD',
               loss='categorical_crossentropy'
               ,metrics=['accuracy'])
 #epcoh
-history=model.fit(x_train,y_train,batch_size=256,epochs=50,verbose=-1,
-                  validation_data=(x_test,y_test))
+history=model.fit(x_train,y_train,batch_size=256,
+                  epochs=50, #epoch
+                  verbose=-1, 
+                  validation_split=0.9, #驗證資料
+                  validation_data=(x_test,y_test),#驗證資料
+                  shuffle=True)# 每epoch後，將訓練及打亂順序
 
 import matplotlib.pyplot as plt
 plt.plot(history.history['acc'],label='acc')
