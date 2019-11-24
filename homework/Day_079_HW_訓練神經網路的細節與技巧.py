@@ -145,7 +145,6 @@ for mom in MOMENTUM:
                              'train-acc': train_acc,
                              'valid-acc': valid_acc}
 import matplotlib.pyplot as plt
-%matplotlib inline
 """Code Here
 將結果繪出
 """
