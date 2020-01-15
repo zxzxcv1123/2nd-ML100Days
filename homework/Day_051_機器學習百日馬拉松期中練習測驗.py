@@ -11,11 +11,10 @@ from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from lightgbm import LGBMRegressor
 from sklearn.linear_model import LogisticRegression
-from mlxtend.regressor import StackingRegressor
 import sklearn.metrics
 import seaborn as sns
 #匯入資料
-path='C:/Users/user/Desktop/JupyterNotebook/exam/'
+path='C:/Users/zxzxc/Desktop/JupyterNotebook/exam/'
 train_df=pd.read_csv(path+'train_offline.csv')
 test_df=pd.read_csv(path+'test_offline.csv')
 test_id=test_df[['User_id','Coupon_id','Date_received']]
